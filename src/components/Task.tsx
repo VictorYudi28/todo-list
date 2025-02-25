@@ -18,7 +18,7 @@ export const Task = ( { task, deleteTaskProp, changeTaskProp }: Props ) => {
                     task.checked == true && <p className="line-through text-gray-600">{task.task}</p>
                 }
                 {
-                    task.checked != true && <p>{task.task}</p>
+                    task.checked != true && <p className="text-black">{task.task}</p>
                 }
             </div>
             <button className="text-gray-600 cursor-pointer" onClick={()=> deleteTaskProp(task.id)}>X</button>

@@ -12,33 +12,36 @@ export default function Home() {
   const [listOfItemsState, setListOfItemsState] = useState<Item[]>(listOfItems);
   const [inputValue, setInputValue] = useState<string>('');
 
-  const addTask = ()=> {
-    
-    setListOfItemsState([
-      ...listOfItemsState,
-      { id: listOfItemsState.length+1, 
-        task: inputValue,
-        checked: false
-      }
-    ])
+  const addTask = () => {
+
+    if (inputValue != '') {
+      setListOfItemsState([
+        ...listOfItemsState,
+        {
+          id: listOfItemsState.length + 1,
+          task: inputValue,
+          checked: false
+        }
+      ])
+    }
 
     setInputValue('')
 
   }
 
-  const deleteTask = (id: number)=> {
+  const deleteTask = (id: number) => {
 
-    setListOfItemsState(listOfItemsState.filter( (item) => item.id !== id ));
+    setListOfItemsState(listOfItemsState.filter((item) => item.id !== id));
 
   }
 
-  const changeTask = (id: number)=> {
+  const changeTask = (id: number) => {
 
     let newList = [...listOfItemsState]
 
-    for(let i in newList){
+    for (let i in newList) {
 
-      if(newList[i].id === id){
+      if (newList[i].id === id) {
         newList[i].checked = !newList[i].checked;
       }
 
@@ -56,7 +59,7 @@ export default function Home() {
         <Title>To-Do List 📝</Title>
         <TaskForm addTaskProp={addTask} getValue={setInputValue} clearEntry={inputValue}></TaskForm>
         {
-          listOfItemsState.map(item => <Task  task={item} key={item.id} deleteTaskProp={deleteTask} changeTaskProp={changeTask}></Task>)
+          listOfItemsState.map(item => <Task task={item} key={item.id} deleteTaskProp={deleteTask} changeTaskProp={changeTask}></Task>)
         }
       </div>
 

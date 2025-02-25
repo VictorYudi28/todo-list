@@ -9,7 +9,7 @@ export const TaskForm = ( { getValue, addTaskProp, clearEntry }: Props ) => {
     return (
         <div className="flex flex-col items-center gap-2 mb-7 sm:flex-row">
             <input onChange={(e) => getValue(e.target.value)} 
-            className="bg-gray-200 text-lg rounded-lg py-4 pl-6 pr-9 outline-none w-full sm:w-auto" 
+            className="bg-gray-200 text-black text-lg rounded-lg py-4 pl-6 pr-9 outline-none w-full sm:w-auto" 
             type="text" 
             placeholder="Add your task" 
             value={clearEntry}/>
